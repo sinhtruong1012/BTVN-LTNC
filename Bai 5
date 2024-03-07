@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+
+
+
+
+int main() {
+    int a, b, c, d;
+    cin >> a >> b >> c >> d;
+    
+    int max;
+    if((a>b)&&(a>c)&&(a>d)){
+        cout << a;}
+        else if((b>a)&&(b>c)&&(b>d)){
+            cout << b;}
+        else if((c>b)&&(c>a)&&(c>d)){
+            cout << c;
+            
+    }
+    else if((d>a)&&(d>c)&&(d>b)){
+        cout << d;}
+   
+    
+    return 0;
+}
