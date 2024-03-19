@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string timeConversion(string s) {
+    string h = s.substr(0, 2);
+    string p = s.substr(s.size() - 2);
+    string t = s.substr(0, s.size() - 2);
+
+    if (p == "AM" && h == "12") {
+        t.replace(0, 2, "00");
+    } else if (p == "PM" && h != "12") {
+        int hr = stoi(h);
+        hr = (hr + 12) % 24;
+        t.replace(0, 2, to_string(hr));
+    }
+
+    return t;
+}
+
+int main() {
+    string s;
+    
+    cin >> s;
+    cout  << timeConversion(s) << endl;
+    return 0;
+}
