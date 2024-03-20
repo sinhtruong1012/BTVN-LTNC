@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int pageCount(int n, int p) {
+    
+    int trangtruoc = p / 2;
+
+    
+    int trangsau;
+    if (n % 2 == 0)
+         trangsau = (n - p + 1) / 2;
+    else
+        trangsau = (n - p) / 2;
+
+  
+    return min(trangtruoc, trangsau);
+}
+
+int main() {
+    int n, p;
+    cin >> n >> p;
+    int result = pageCount(n, p);
+    cout << result << endl;
+    return 0;
+}
