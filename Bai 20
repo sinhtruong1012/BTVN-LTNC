@@ -1,0 +1,54 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+bool Palindrome(const string& s) {
+    int i = 0, j = s.length() - 1;
+    while (i < j) {
+        if (s[i] != s[j]) {
+            return false;
+        }
+        i++;
+        j--;
+    }
+    return true;
+}
+int palindromeIndex(const string& s) {
+    int i = 0, j = s.length() - 1;
+    
+ while (i < j) {
+     if (s[i] != s[j]) {
+            
+            if (Palindrome(s.substr(i + 1, j - i))) {
+                return i;
+            }
+          
+            else if (Palindrome(s.substr(i, j - i))) {
+                return j;
+            }
+            
+            else {
+                return -1;
+            }
+        }
+        i++;
+        j--;
+    }
+    return -1;
+}
+
+int main() {
+    int q;
+    cin >> q;
+    while (q--) {
+        string s;
+        cin >> s;
+
+        int result = palindromeIndex(s);
+        cout << result << endl;
+    }
+
+    return 0;
+}
