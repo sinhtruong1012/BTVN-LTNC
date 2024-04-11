@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int n, q;
+    cin >> n >> q; // n:so day so, q: so cau hoi
+
+    vector<vector<int>> a(n);// vecto chua n vecto con(cac day so)
+    
+
+    for (int i = 0; i < n; i++) {
+        int k;
+        cin >> k;//kick thuoc mang i(day so thu i)
+        a[i].resize(k);//thay doi kich thuoc mang sao cho = so k phan tu
+        for (int j = 0; j < k; j++) {
+            cin >> a[i][j];// nhap gia tri cho day thu may va phan tu thu may cua mang con
+        }
+    }
+
+    for (int i = 0; i < q; i++) {
+        int c, b;
+        cin >> c >> b;
+        cout << a[c][b] << endl;
+    }
+
+    return 0;
+}
