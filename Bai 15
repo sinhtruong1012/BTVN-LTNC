@@ -4,8 +4,8 @@ using namespace std;
 
 int lacda(string s) {
     int count = 1; 
-    for (char c : s) {
-        if (isupper(c)) {
+    for (char c : s) {// dat 1 bien c chay qua tung ki tu s
+        if (isupper(c)) { // ham kiem tra xem ki tu co chu hoa k
             count++; 
         }
     }
