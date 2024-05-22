@@ -1,0 +1,70 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+class box
+{
+private:
+    int l , b , h;  
+public:  
+    box() : l(0) , b(0) , h(0){}
+    box(int x , int y , int z) : l(x) , b(y) , h(z){}
+    
+    int getLength(){return l;}
+    int getBreadth(){return b;}
+    int getheight(){return h;}
+    long long CalculateVolume(){return (long long)(l *b * h);}
+    
+    // friend bool operator<(const box& tmp, const box& temp) {
+    //     if (tmp.l == temp.l && tmp.b == temp.b)
+    //         return tmp.h < temp.h;
+    //     if (tmp.l == temp.l)
+    //         return tmp.b < temp.b;
+    //     return tmp.l < temp.l;
+    // }
+    friend ostream &operator << (ostream&os , box &temp)
+    {
+        os << temp.l <<" " << temp.b <<" "<< temp.h << endl;
+        return os;
+    }
+};
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */      
+    int n ; cin >> n;
+    int l1, b1 , h1;
+    
+    box b2 , temp;
+    while(n--)
+    {    
+        int x ; cin >> x;
+        if(x == 1)
+        {
+            cout << b2;
+        }
+        else if (x == 2)
+        {
+            cin >> l1 >> b1 >>h1;
+            box b2(l1 , b1 , h1);
+            temp = b2;
+            cout << b2;
+        }else if(x == 3)
+        {
+            cin >> l1 >> b1 >>h1;
+            box b(l1 , b1 , h1);
+            if(b.getLength() > b2.getLength())cout<<"Greater" << endl;
+            else cout << "Lesser" <<endl;
+        }else if (x == 4)
+        {
+            cout << temp.CalculateVolume() << endl;
+        }else if (x == 5)
+        {
+            cout << temp;
+        }
+        
+    }
+    return 0;
+}
