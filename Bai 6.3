@@ -1,0 +1,49 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+class student
+{
+public :
+    int sum = 0;
+    
+    int calculateTotalScore(int x);
+    void input();
+};
+
+int student::calculateTotalScore(int x)
+{
+    this -> sum += x;
+    return sum;
+}
+void student::input()
+{
+    int point;
+    for(int i = 0 ; i < 5 ; ++i)
+    {
+        cin >> point;
+        calculateTotalScore(point);
+    }
+}
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
+    int n ; cin >>n;
+    student a[n];
+    for(int i = 0 ; i < n ; ++i)
+    {
+        a[i].input();
+    }
+    
+    int ans = 0;
+    for(int i = 1 ; i < n ; ++i)
+    {
+        if(a[i].sum > a[0].sum) ++ans;
+    }
+    cout << ans <<" ";
+    
+    return 0;
+}
